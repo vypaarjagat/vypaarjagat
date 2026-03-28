@@ -6,9 +6,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect('YOUR_MONGO_URL')
-.then(()=>console.log("DB Connected"));
+// mongoose.connect('YOUR_MONGO_URL')
+// .then(()=>console.log("DB Connected"));
 
 app.use('/api/products', require('./routes/product'));
 
-app.listen(5000, () => console.log("Server running"));
+app.listen(process.env.PORT || 5000, () => {
+  console.log("Server running");
+});
