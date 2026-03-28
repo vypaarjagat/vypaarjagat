@@ -1,9 +1,5 @@
-const mongoose = require('mongoose');
+const auth = require('../middleware/auth');
 
-const schema = new mongoose.Schema({
-  name: String,
-  price: Number,
-  sellerId: String
+router.post('/', auth, async (req, res) => {
+  // only logged user
 });
-
-module.exports = mongoose.model('Product', schema);
